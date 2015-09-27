@@ -95,21 +95,25 @@ public class MainOp4991 extends OpMode{
 
         if (gamepad1.a & hookServoClick == 0) {
             hookServoPosition -= hookServoDelta;
+            System.out.println(hookServoPosition);
             hookServoClick = 1;
         }
 
         if (gamepad1.a & hookServoClick == 1){
             hookServoPosition += hookServoDelta;
+            System.out.println(hookServoPosition);
             hookServoClick = 0;
         }
 
         if (gamepad1.x & triggerServoClick == 0) {
             triggerServoPosition -= triggerServoDelta;
+            System.out.println(triggerServoPosition);
             triggerServoClick = 1;
         }
 
         if (gamepad1.x & triggerServoClick == 1){
             triggerServoPosition += triggerServoDelta;
+            System.out.println(triggerServoPosition);
             triggerServoClick = 0;
         }
 
