@@ -35,7 +35,8 @@ public class MainOp4991 extends OpMode{
     double hookServoDelta;
     double triggerServoDelta;
 
-    int numOpLoops = 1;
+    int hookServoClick = 0;
+    int triggerServoClick = 0;
 
     @Override
     public void init() {
@@ -57,6 +58,10 @@ public class MainOp4991 extends OpMode{
         armController = hardwareMap.dcMotorController.get("armController");
         servoController = hardwareMap.servoController.get("servoController");
 
+        //sets servo Pos
+        hookServoPosition = 0.2;
+        triggerServoPosition = 0.2;
+
     }
 
     @Override
@@ -68,9 +73,7 @@ public class MainOp4991 extends OpMode{
         driveLeft.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         driveRight.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
 
-        //sets servo Pos
-        hookServoPosition = 0.2;
-        triggerServoPosition = 0.2;
+
     }
 
     @Override
@@ -78,17 +81,51 @@ public class MainOp4991 extends OpMode{
 
         // Gamepad 1 - Drive Controller
 
-            float rightDriveMotorSpeed = -gamepad1.right_stick_y;
-            float leftDriveMotorSpeed = -gamepad1.left_stick_y;
+        float rightDriveMotorSpeed = -gamepad1.right_stick_y;
+        float leftDriveMotorSpeed = -gamepad1.left_stick_y;
 
-            rightDriveMotorSpeed = Range.clip(rightDriveMotorSpeed, -1, 1);
-            leftDriveMotorSpeed = Range.clip(leftDriveMotorSpeed, -1, 1);
+        rightDriveMotorSpeed = Range.clip(rightDriveMotorSpeed, -1, 1);
+        leftDriveMotorSpeed = Range.clip(leftDriveMotorSpeed, -1, 1);
 
-            rightDriveMotorSpeed = (float)scaleInput(rightDriveMotorSpeed);
-            leftDriveMotorSpeed = (float)scaleInput(leftDriveMotorSpeed);
+        rightDriveMotorSpeed = (float)scaleInput(rightDriveMotorSpeed);
+        leftDriveMotorSpeed = (float)scaleInput(leftDriveMotorSpeed);
 
-            driveRight.setPower(rightDriveMotorSpeed);
-            driveLeft.setPower(leftDriveMotorSpeed);
+        driveRight.setPower(rightDriveMotorSpeed);
+        driveLeft.setPower(leftDriveMotorSpeed);
+
+        if (gamepad1.a & hookServoClick == 0) {
+            hookServoPosition -= hookServoDelta;
+            hookServoClick = 1;
+        }
+
+        if (gamepad1.a & hookServoClick == 1){
+            hookServoPosition += hookServoDelta;
+            hookServoClick = 0;
+        }
+
+        if (gamepad1.x & triggerServoClick == 0) {
+            triggerServoPosition -= triggerServoDelta;
+            triggerServoClick = 1;
+        }
+
+        if (gamepad1.x & triggerServoClick == 1){
+            triggerServoPosition += triggerServoDelta;
+            triggerServoClick = 0;
+        }
+
+        //Gamepad 2
+
+        float armStage1MotorSpeed = -gamepad2.right_stick_y;
+        float armStage2MotorSpeed = -gamepad2.left_stick_y;
+
+        armStage1MotorSpeed = Range.clip(armStage1MotorSpeed, -1, 1);
+        armStage2MotorSpeed = Range.clip(armStage2MotorSpeed, -1, 1);
+
+        armStage1MotorSpeed = (float)scaleInput(armStage1MotorSpeed);
+        armStage2MotorSpeed = (float)scaleInput(armStage2MotorSpeed);
+
+        armStage1.setPower(armStage1MotorSpeed);
+        armStage2.setPower(armStage2MotorSpeed);
 
     }
 
