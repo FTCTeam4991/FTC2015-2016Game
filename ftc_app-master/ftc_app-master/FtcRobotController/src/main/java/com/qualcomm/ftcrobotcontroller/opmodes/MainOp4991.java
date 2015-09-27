@@ -45,7 +45,8 @@ public class MainOp4991 extends OpMode{
         armStage2 = hardwareMap.dcMotor.get("armStage2");
 
         // Servos
-
+        hookServo = hardwareMap.servo.get("hookServo");
+        triggerServo = hardwareMap.servo.get("triggerServo");
 
         // Controllers
         driveController = hardwareMap.dcMotorController.get("driveController");
