@@ -89,9 +89,9 @@ public class MainOp4991 extends OpMode{
 
         rightDriveMotorSpeed = (float)scaleInput(rightDriveMotorSpeed);
         leftDriveMotorSpeed = (float)scaleInput(leftDriveMotorSpeed);
+        System.out.println(rightDriveMotorSpeed);
 
-        System.out.println(leftDriveMotorSpeed);
-
+        
         driveRight.setPower(rightDriveMotorSpeed);
         driveLeft.setPower(leftDriveMotorSpeed);
 
