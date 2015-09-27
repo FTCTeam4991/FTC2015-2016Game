@@ -31,6 +31,10 @@ public class MainOp4991 extends OpMode{
     double hookServoPosition;
     double triggerServoPosition;
 
+    //Servo Delta
+    double hookServoDelta;
+    double triggerServoDelta;
+
     int numOpLoops = 1;
 
     @Override
@@ -57,14 +61,16 @@ public class MainOp4991 extends OpMode{
 
     @Override
     public void init_loop() {
-
+        //Reverses the Right Wheel
         driveRight.setDirection(DcMotor.Direction.REVERSE);
 
+        //Sets motors to run without incoders
         driveLeft.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         driveRight.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
 
-        hookServoPosition = 0.6;
-        triggerServoPosition = 0.5;
+        //sets servo Pos
+        hookServoPosition = 0.2;
+        triggerServoPosition = 0.2;
     }
 
     @Override
