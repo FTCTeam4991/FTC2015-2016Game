@@ -1,3 +1,12 @@
+package com.qualcomm.ftcrobotcontroller.opmodes;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ServoController;
+
+public class MainOp4991 extends OpMode{
 
     //Controllers
     DcMotorController.DeviceMode devMode;
@@ -20,6 +29,8 @@
     //Servo Position
     double hookServoPosition;
     double triggerServoPosition;
+
+    @Override
     public void init() {
 
         // Drive Motors
@@ -51,3 +62,21 @@
         hookServoPosition = 0.6;
         triggerServoPosition = 0.5;
     }
+
+    @Override
+    public void loop() {
+
+        // Gamepad 1 - Drive Controller
+
+
+
+
+
+        // Gamepad 2 Other Controller
+
+
+
+
+    }
+
+}
