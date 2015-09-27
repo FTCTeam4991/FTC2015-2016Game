@@ -39,3 +39,15 @@
         servoController = hardwareMap.servoController.get("servoController");
 
     }
+
+    @Override
+    public void init_loop() {
+
+        driveRight.setDirection(DcMotor.Direction.REVERSE);
+
+        driveLeft.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+        driveRight.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+
+        hookServoPosition = 0.6;
+        triggerServoPosition = 0.5;
+    }
