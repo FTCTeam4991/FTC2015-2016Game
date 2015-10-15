@@ -64,7 +64,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     //4991 OpModes
 
-    manager.register("MainOp4991", MainOp4991.class);
+    manager.register("MainOp4991Backup", MainOp4991Backup.class);
 
 
     /*
