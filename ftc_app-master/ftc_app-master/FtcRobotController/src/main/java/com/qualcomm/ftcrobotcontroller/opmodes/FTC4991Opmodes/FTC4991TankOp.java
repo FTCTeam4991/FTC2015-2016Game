@@ -1,11 +1,11 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.util.Range;
 
-public class TankOp4991 extends OpMode{
+public class FTC4991TankOp extends OpMode{
 
     DcMotorController.DeviceMode deviceMode;
     DcMotorController driveFrontController;

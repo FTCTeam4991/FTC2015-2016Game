@@ -1,4 +1,4 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.util.Range;
 
-public class MainOp4991Backup extends OpMode{
+public class FTC4991MainOp extends OpMode{
 
     //Controllers
     DcMotorController.DeviceMode devMode;
@@ -62,6 +62,9 @@ public class MainOp4991Backup extends OpMode{
         hookServoPosition = 0.2;
         triggerServoPosition = 0.2;
 
+        hookServo.setPosition(hookServoPosition);
+        triggerServo.setPosition(triggerServoPosition);
+
     }
 
     @Override
@@ -99,24 +102,28 @@ public class MainOp4991Backup extends OpMode{
             hookServoPosition -= hookServoDelta;
             System.out.println(hookServoPosition);
             hookServoClick = 1;
+            hookServo.setPosition(hookServoPosition);
         }
 
         if (gamepad1.a & hookServoClick == 1){
             hookServoPosition += hookServoDelta;
             System.out.println(hookServoPosition);
             hookServoClick = 0;
+            hookServo.setPosition(hookServoPosition);
         }
 
         if (gamepad1.x & triggerServoClick == 0) {
             triggerServoPosition -= triggerServoDelta;
             System.out.println(triggerServoPosition);
             triggerServoClick = 1;
+            triggerServo.setPosition(triggerServoPosition);
         }
 
         if (gamepad1.x & triggerServoClick == 1){
             triggerServoPosition += triggerServoDelta;
             System.out.println(triggerServoPosition);
             triggerServoClick = 0;
+            triggerServo.setPosition(triggerServoPosition);
         }
 
         //Gamepad 2
@@ -145,7 +152,7 @@ public class MainOp4991Backup extends OpMode{
     //Scales Motor Power
     double scaleInput(double Val) {
 
-        double[] scaleArray = { 0.0, 0.05, 0.09, 0.10, 0.12, 0.15, 0.18, 0.24, 0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 1.00, 1.00};
+        double[] scaleArray = { 0.0, 0.05, 0.09, 0.10, 0.12, 0.15, 0.18, 0.24, 0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 1.00};
 
         // get the corresponding index for the scaleInput array.
         int index = (int) (Val * 16.0);
@@ -163,9 +170,9 @@ public class MainOp4991Backup extends OpMode{
         // get value from the array.
         double Scale = 0.0;
         if(Val < 0){
-            Scale = -scaleArray[index];
-        } else {
             Scale = scaleArray[index];
+        } else {
+            Scale = -scaleArray[index];
         }
 
         // return scaled value.
