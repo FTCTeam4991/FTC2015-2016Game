@@ -143,10 +143,10 @@ public class HTRGBExample extends LinearOpMode {
       // pass a reference to the hue, saturation, and value array as an argument
       // to the HSVToColor method.
       relativeLayout.post(new Runnable() {
-        public void run() {
-          relativeLayout.setBackgroundColor(Color.HSVToColor(0xff, values));
-        }
-      });
+            public void run() {
+                relativeLayout.setBackgroundColor(Color.HSVToColor(0xff, values));
+            }
+        });
 
       // wait a hardware cycle before iterating.
       waitOneFullHardwareCycle();
