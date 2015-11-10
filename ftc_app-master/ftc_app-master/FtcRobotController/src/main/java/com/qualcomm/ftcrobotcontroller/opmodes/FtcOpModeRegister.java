@@ -35,6 +35,7 @@ import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTC4991AutoTest;
 import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTC4991EncoderTest;
 import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTC4991MainOp;
 import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTC4991TankOp;
+import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTC4991TelopSwitchSpeed;
 import com.qualcomm.ftcrobotcontroller.opmodes.FTC4991Opmodes.FTCColorSensorTest;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
@@ -52,6 +53,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("FTC4991MainOp", FTC4991MainOp.class);
       manager.register("FTC4991TankOp", FTC4991TankOp.class);
       manager.register("FTCColorSensorTest", FTCColorSensorTest.class);
+      manager.register("FTC4991TelopSwitchSpeed", FTC4991TelopSwitchSpeed.class);
 
   }
 }
